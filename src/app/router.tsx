@@ -1,30 +1,35 @@
-import {
-  createBrowserRouter
-} from "react-router-dom";
+import {createBrowserRouter} from "react-router-dom";
 
-import {
-  Typography,
-  Box
-} from "@mui/material";
+import LoginPage from "../features/auth/pages/LoginPage";
 
-function Placeholder() {
-  return (
-    <Box
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-      height="100vh"
-    >
-      <Typography variant="h3">
-        HRAPIMS
-      </Typography>
-    </Box>
-  );
+import RegisterPage from "../features/auth/pages/RegisterPage";
+
+import ForgotPasswordPage from "../features/auth/pages/ForgotPasswordPage";
+
+export const router=createBrowserRouter([
+
+{
+
+path:"/",
+
+element:<LoginPage/>
+
+},
+
+{
+
+path:"/register",
+
+element:<RegisterPage/>
+
+},
+
+{
+
+path:"/forgot-password",
+
+element:<ForgotPasswordPage/>
+
 }
 
-export const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Placeholder />
-  }
 ]);
