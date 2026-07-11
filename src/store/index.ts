@@ -1,27 +1,11 @@
-import { create } from "zustand";
+export * from "../features/patients/store/patient.store";
 
-interface AppState {
+export * from "../features/employees/store/employee.store";
 
-    loading: boolean;
+export * from "../features/attendance/store/attendance.store";
 
-    setLoading: (loading: boolean) => void;
+export * from "../features/payroll/store/payroll.store";
 
-}
+export * from "../features/reports/store/report.store";
 
-export const useAppStore = create<AppState>(
-
-    set => ({
-
-        loading: false,
-
-        setLoading: loading =>
-
-            set({
-
-                loading
-
-            })
-
-    })
-
-);
+export * from "../features/settings/store/settings.store";
