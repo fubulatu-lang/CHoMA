@@ -1,26 +1,104 @@
 import {
- AppBar,
- Toolbar,
- Typography
+    AppBar,
+    Toolbar,
+    Typography,
+    IconButton,
+    Avatar,
+    Badge,
+    Box
 } from "@mui/material";
 
-export default function TopBar() {
- return (
-  <AppBar
-   position="sticky"
-   color="inherit"
-   elevation={1}
-  >
-   <Toolbar>
+import MenuIcon from "@mui/icons-material/Menu";
+import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
 
-    <Typography
-      variant="h6"
-      fontWeight={700}
-    >
-      HRAPIMS
-    </Typography>
+interface Props {
 
-   </Toolbar>
-  </AppBar>
- );
+    drawerWidth:number;
+
+    onMenuClick:()=>void;
+
+}
+
+export default function TopBar({
+
+    drawerWidth,
+
+    onMenuClick
+
+}:Props){
+
+    return(
+
+        <AppBar
+            position="fixed"
+            color="inherit"
+            elevation={1}
+            sx={{
+                width:{
+                    md:`calc(100% - ${drawerWidth}px)`
+                },
+                ml:{
+                    md:`${drawerWidth}px`
+                }
+            }}
+        >
+
+            <Toolbar>
+
+                <IconButton
+                    edge="start"
+                    onClick={onMenuClick}
+                    sx={{
+                        mr:2,
+                        display:{
+                            md:"none"
+                        }
+                    }}
+                >
+
+                    <MenuIcon/>
+
+                </IconButton>
+
+                <Typography
+                    variant="h6"
+                    sx={{
+                        flexGrow:1,
+                        fontWeight:700
+                    }}
+                >
+
+                    CHoMA
+
+                </Typography>
+
+                <IconButton>
+
+                    <Badge
+                        badgeContent={5}
+                        color="error"
+                    >
+
+                        <NotificationsOutlinedIcon/>
+
+                    </Badge>
+
+                </IconButton>
+
+                <Box ml={2}>
+
+                    <Avatar>
+
+                        A
+
+                    </Avatar>
+
+                </Box>
+
+            </Toolbar>
+
+        </AppBar>
+
+    );
+
 }
