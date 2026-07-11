@@ -1,15 +1,29 @@
-import { z } from "zod";
+import {z} from "zod";
 
-export const registerSchema = z.object({
-  fullName: z.string().min(3),
+export const LoginSchema=z.object({
 
-  email: z.string().email(),
+    email:z.string().email(),
 
-  password: z.string().min(8),
+    password:z.string().min(8)
+
 });
 
-export const loginSchema = z.object({
-  email: z.string().email(),
+export const RegisterSchema=z.object({
 
-  password: z.string().min(8),
+    firstName:z.string().min(2),
+
+    lastName:z.string().min(2),
+
+    email:z.string().email(),
+
+    password:z.string().min(8)
+
 });
+
+export type LoginInput=
+
+z.infer<typeof LoginSchema>;
+
+export type RegisterInput=
+
+z.infer<typeof RegisterSchema>;
